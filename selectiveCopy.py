@@ -1,3 +1,9 @@
+"""This program was written by Aryan Jha.
+This program copies all files with the same extension in a given path
+to a new folder in that path labeled with the extension of the files"""
+
+
+
 import re
 import os
 import shutil
@@ -5,7 +11,7 @@ from pathlib import Path
 import pyinputplus as pyip
 
 def copy_files(file_ext, folder):
-    # create new folder to copy* all the new stuff into
+    # create new folder to copy all the new files into
     new_folder_name = "ALL_" + file_ext + "_files"
 
     # check if the folder exists, if not, create one
@@ -16,7 +22,7 @@ def copy_files(file_ext, folder):
     new_path = Path(folder + "/" + new_folder_name)
 
     # Walk through all folders, sub_folders, files
-    # and copy anything w same extension into new folder
+    # and copy anything with the same extension into new folder
     for foldername, subfolders, files in os.walk(folder):
         for filename in files:
             if Path(filename).suffix == file_ext:
